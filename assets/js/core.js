@@ -185,9 +185,10 @@ $(document).ready(function () {
     $("#btn-topup").click(function () {
         var $btn = $(this);
         $btn.button('loading');
-//        if (req) {
-//            req.abort();
-//        }
+        console.log("req",req);
+        if (req) {
+            req.abort();
+        }
         var data = {
             serial: $('#cardSerial').val(),
             cardPin: $('#cardPin').val(),
@@ -195,25 +196,30 @@ $(document).ready(function () {
         }
         console.log(data);
         req = $.ajax({
-            url: "transaction",
+//            url: "transaction/",
+            url: "transaction?act=topupcard/",
+//            url: "paygate",
             type: "POST",
             data: data,
             dataType:"json",
             success: function(res) {
+//                alert("res",res);
                 console.log(res);
             }
         });
-//        req.done(function (response, textStatus, jqXHR) {
+        console.log("data",data, event);
+        req.done(function (response, textStatus, jqXHR) {
+//                alert("res",response);
 //            console.log(response);
-//            $btn.button('reset');
-//            return;
-//            var json = $.parseJSON(response);
-//            if (json.err === 0) {
-//                App.notifyTopCenter(json.msg, 'success', 'fa fa-check');
-//            } else {
-//                App.notifyTopCenter(json.msg, 'danger', 'fa fa-times');
-//            }
-//        });
+            $btn.button('reset');
+            return;
+            var json = $.parseJSON(response);
+            if (json.err === 0) {
+                App.notifyTopCenter(json.msg, 'success', 'fa fa-check');
+            } else {
+                App.notifyTopCenter(json.msg, 'danger', 'fa fa-times');
+            }
+        });
         event.preventDefault();
     });
 

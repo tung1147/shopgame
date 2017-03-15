@@ -15,7 +15,10 @@
     <div class="modal fade" id="requestModal" role="dialog" tabindex="-1">
     </div>
 	
-    <script src="http://<?=$_SERVER['HTTP_HOST'].TPATH?>/assets/js/jquery.min.js">
+<!--    <script src="http://<?=$_SERVER['HTTP_HOST'].TPATH?>/assets/js/jquery.min.js">
+    </script> -->
+	
+    <script src="http://<?=$_SERVER['HTTP_HOST'].TPATH?>/assets/js/jquery-2.2.0.js">
     </script> 
     <script src="http://<?=$_SERVER['HTTP_HOST'].TPATH?>/assets/js/bootstrap.min.js">
     </script> 
