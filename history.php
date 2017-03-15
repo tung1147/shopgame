@@ -1,4 +1,5 @@
 <?php
+//test
 session_start();
 ob_start();
 define("TPATH","/gameshop/src");
